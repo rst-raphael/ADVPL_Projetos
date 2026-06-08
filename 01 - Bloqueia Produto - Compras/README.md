@@ -1,4 +1,4 @@
-# 🔒 Bloqueio Específico para Compras (Protheus) – Códigos Reais
+# 🔒 Bloqueio Específico para Compras (Protheus)
 
 ## 📌 Visão Geral
 
