@@ -1,16 +1,19 @@
-# 🔒 Bloqueio Específico para Compras (Protheus)
+# 🔒 Bloqueio Específico para Compras (Protheus) – Códigos Reais
 
 ## 📌 Visão Geral
 
 Esta solução customizada foi desenvolvida para o ERP **TOTVS Protheus** com o objetivo de **bloquear produtos descontinuados apenas nos processos de compras**, mantendo as vendas totalmente liberadas.
 
-Diferentemente do campo nativo `B1_MSBLQL` (que realiza um bloqueio total – compras, vendas e movimentações), esta implementação atua de forma **cirúrgica**, permitindo que a empresa venda o estoque remanescente de um produto descontinuado sem correr o risco de realizar novas compras.
+Diferentemente do campo nativo `B1_MSBLQL` (que bloqueia **todas** as movimentações – compras, vendas, produção, etc.), esta implementação atua de forma **cirúrgica**:
+- ✅ **Compras bloqueadas** (Solicitação de Compras e Pedido de Compra)
+- ✅ **Vendas liberadas** (estoque remanescente pode ser comercializado)
 
 ## 🎯 Problema Resolvido
 
 - Produto sai de linha, mas ainda há estoque disponível para venda.
 - A empresa **não pode comprar** novas quantidades, mas **precisa vender** o que tem.
 - O campo `B1_MSBLQL` bloquearia também a venda, inviabilizando a operação.
+- A solução customizada resolve exatamente esse cenário de **descontinuação gradual**.
 
 ## ⚙️ Solução Técnica
 
@@ -20,41 +23,51 @@ Diferentemente do campo nativo `B1_MSBLQL` (que realiza um bloqueio total – co
 |-----------|----------|----------------------------------------------|
 | `B1_XDESCON` | Lógico (S/N) | Indica se o produto está descontinuado. |
 
-- Quando `B1_XDESCON = "S"` → produto descontinuado.
-- Quando `B1_XDESCON = "N"` ou vazio → produto normal.
+- `B1_XDESCON = "S"` → produto descontinuado (compras bloqueadas)
+- `B1_XDESCON = "N"` ou vazio → produto normal
 
 ### 2. Pontos de Entrada Utilizados
 
 | Ponto de Entrada | Onde atua                          | Finalidade                                  |
 |-----------------|-------------------------------------|---------------------------------------------|
-| `MT110LOK`      | Solicitação de Compras (item a item) | Bloquear produto descontinuado na SC |
-| `MT120LOK`      | Pedido de Compras (item a item)     | Bloquear produto descontinuado no pedido de compras |
+| `MT110LOK`      | Solicitação de Compras (item a item) | Bloqueia produto descontinuado na SC |
+| `MT120LOK`      | Pedido de Compras (item a item)     | Bloqueia produto descontinuado no Pedido de Compras |
 
-### 3. Lógica de Validação (ADVPL)
+### 3. Código Fonte Real
 
-Abaixo um exemplo prático do código implementado:
+#### Arquivo: `MT110LOK.PRW`
 
 ```advpl
-// Ponto de Entrada MT110LOK (Solicitação de Compras)
-// Ponto de Entrada MT120LOK (Pedido de Compras)
-
+#include "rwmake.ch"
+#include "topconn.ch"
+#INCLUDE "protheus.ch"
+/*------------------------------------------------------------------------//
+//Programa: MT110LOK 
+//Autor:    Raphael Silva
+//Data:     27/06/2024
+//Descricao:responsável pela validação de cada linha da GetDados da Solicitação de Compras .
+//          O ponto se encontra no final da função e deve ser utilizado para validações especificas do usuario 
+//          onde será controlada pelo retorno do ponto de entrada o qual se for .F. o processo será interrompido e se .T. será validado.      
+//Uso:
+//Parametros:
+//Retorno:
+//------------------------------------------------------------------------*/
 User Function MT110LOK()
-Local cProduto  := SC1->C1_PRODUTO
-Local lBloqueia := .F.
 
-// Busca o campo customizado no cadastro do produto
-DbSelectArea("SB1")
-DbSetOrder(1)  // B1_COD
-If DbSeek(xFilial("SB1") + cProduto)
-    If SB1->B1_XDESCON == "S"
-        lBloqueia := .T.
-    EndIf
-EndIf
+Local lRet    := .T.
 
-If lBloqueia
-    // Exibe mensagem de bloqueio e impede a inclusão/liberação do item
-    Aviso("Produto Descontinuado", "Produto Descontinuado, não pode ser utilizado", {"OK"})
-    Return .F.  // Bloqueia a operação
-EndIf
+    if SM0->M0_CODIGO=='80'
+       Return(lRet)
+    EndIf  
 
-Return .T.  // Libera o item
+    _cProd := aCols[n,aScan(aHeader,{|x| AllTrim(x[2])=="C1_PRODUTO"})]
+
+    SB1->(dbSetOrder(1))
+    SB1->(dbseek(xFilial("SB1")+_cProd))
+   
+    IF SB1->B1_XDESCON == 'S' //Valida se o Produto está Descontinuado
+        lRet := .F.
+        ALERT("Produto descontinuado, não pode ser utilizado! <MT110LOK> ")
+    ENDIF
+
+Return lRet
