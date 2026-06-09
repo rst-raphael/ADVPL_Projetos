@@ -73,16 +73,15 @@ Local lRet    := .T.
 Return lRet
 
 
-
 ---
 
 # 📄 Fonte 02 – Pedido de Compras
 
 > O código abaixo refere-se exclusivamente ao ponto de entrada **MT120LOK**, utilizado na validação de itens do Pedido de Compras.
 
+---
 #### Arquivo: `MT120LOK.PRW`
 
-```advpl
 #include "rwmake.ch"
 #include "topconn.ch"
 #INCLUDE "protheus.ch"
