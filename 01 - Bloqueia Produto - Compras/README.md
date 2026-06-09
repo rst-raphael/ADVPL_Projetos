@@ -71,3 +71,54 @@ Local lRet    := .T.
     ENDIF
 
 Return lRet
+
+
+#### Arquivo: `MT120LOK.PRW`
+
+```advpl
+#include "rwmake.ch"
+#include "topconn.ch"
+#INCLUDE "protheus.ch"
+/*------------------------------------------------------------------------//
+//Programa: MT120LOK
+//Autor:	Raphael Silva
+//Data:		27/06/2024
+//Descricao:responsvel pela validao de cada linha da GetDados do Pedido de Compras / Autorizao de Entrega.
+//		    O ponto se encontra no final da funo e deve ser utilizado para validaes especificas do usuario
+//          onde ser controlada pelo retorno do ponto de entrada oqual se for .F. o processo ser interrompido e se .T. ser validado.
+//Uso:
+//Parametros:
+//Retorno:
+//------------------------------------------------------------------------*/
+User Function MT120LOK()
+
+Local lRet    := .T.
+
+	if SM0->M0_CODIGO=='80'
+	   Return(lRet)
+	EndIf  
+
+    _cProd := aCols[n,aScan(aHeader,{|x| AllTrim(x[2])=="C7_PRODUTO"})]
+
+    SB1->(dbSetOrder(1))
+    SB1->(dbseek(xFilial("SB1")+_cProd))
+   
+    IF SB1->B1_XDESCON == 'S' //Valida se o Produto est Descontinuado
+        lRet := .F.
+        ALERT("Produto descontinuado, no pode ser utilizado! <MT120LOK> ")
+    ENDIF  
+
+Return lRet
+
+
+
+```
+
+## ✅ Resultado da Implementação
+
+Com esta customização:
+
+- Produtos marcados como descontinuados (`B1_XDESCON = "S"`) não podem ser utilizados em Solicitações de Compras.
+- Produtos marcados como descontinuados (`B1_XDESCON = "S"`) não podem ser utilizados em Pedidos de Compras.
+- Vendas permanecem liberadas.
+- Não há impacto nas demais rotinas do Protheus.
