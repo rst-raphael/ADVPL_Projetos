@@ -1,4 +1,4 @@
-# 🔒 Bloqueio Específico para Compras (Protheus) – Códigos Reais
+# 🔒 Bloqueio Específico para Compras (Protheus)
 
 ## 📌 Visão Geral
 
@@ -33,7 +33,7 @@ Diferentemente do campo nativo `B1_MSBLQL` (que bloqueia **todas** as movimenta�
 | `MT110LOK`      | Solicitação de Compras (item a item) | Bloqueia produto descontinuado na SC |
 | `MT120LOK`      | Pedido de Compras (item a item)     | Bloqueia produto descontinuado no Pedido de Compras |
 
-### 3. Código Fonte Real
+### 3. Código Fonte
 
 #### Arquivo: `MT110LOK.PRW`
 
