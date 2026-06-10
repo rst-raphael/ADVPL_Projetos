@@ -24,7 +24,7 @@ A solução adotada foi o **MILE (Model Integrator Layout Engine)**, framework n
 |---------|------------|
 | `01 - MILE - SFM.png` | Tela de manutenção de layouts MILE – filtro para o layout SFM |
 | `02 - MILE - SFM.png` | Detalhamento do layout SFM (abas Geral, Canais, Campos, Saídas) |
-| `03 - LAYOUT_EXCEL.png` | Exemplo da planilha de origem (colunas: FM_TIF, FM_CLIENT, FM_LOC, FM_POS, FM_GRP, FM_DESCR, FM_ID) |
+| `03 - LAYOUT_EXCEL.png` | Exemplo da planilha de origem (colunas: FM_TIPO, FM_CLIENTE, FM_LOJA, FM_POSIPI, FM_GRPTI, FM_DESCR, FM_ID) |
 | `04 - TES INTELIGENTE.png` | Visualização dos dados cadastrados no programa TES Inteligente do Faturamento |
 | `05 - TES INTELIGENTE.png` | Visualização dos dados cadastrados no programa TES Inteligente do Faturamento |
 | `README.md` | Este arquivo – documentação completa do projeto |
