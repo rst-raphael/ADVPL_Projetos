@@ -1,5 +1,5 @@
 
-### Processo de Importação
+### Automação de Cadastro no Faturamento com MILE - Totvs - Protheus
 - No menu do layout MILE, acione a ação **Importar**.
 - Selecione o arquivo de dados.
 - O sistema processará todos os registros aplicando as validações da rotina MATA089, garantindo a integridade fiscal e cadastral.
