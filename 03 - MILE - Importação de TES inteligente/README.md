@@ -1,5 +1,5 @@
 
-### 5. Processo de Importação
+### Processo de Importação
 - No menu do layout MILE, acione a ação **Importar**.
 - Selecione o arquivo de dados.
 - O sistema processará todos os registros aplicando as validações da rotina MATA089, garantindo a integridade fiscal e cadastral.
@@ -33,27 +33,3 @@
 - `SC6` – Pedidos de venda
 - Criar um validador pré-importação para evitar erros de formatação.
 
----
-
-## 👥 Contribuição
-
-Sugestões, melhorias ou relatos de uso da MILE em outros cenários são muito bem-vindos!  
-Abra uma **issue** ou envie um **pull request**.
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações.
-
----
-
-## ✒️ Autor
-
-Desenvolvido por [Seu Nome] – compartilhando conhecimento sobre automação em ERP TOTVS Protheus.
-
-📫 Conecte-se comigo no [LinkedIn](https://www.linkedin.com/in/seu-perfil/) para trocar ideias sobre Protheus, MILE e eficiência operacional.
-
----
-
-⭐ **Se este conteúdo foi útil, deixe uma estrela no repositório!**  
