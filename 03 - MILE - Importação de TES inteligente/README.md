@@ -1,35 +1,62 @@
+# 🚀 Importação MILE – TES Inteligente (TOTVS Protheus)
 
-### Automação de Cadastro no Faturamento com MILE - Totvs - Protheus
-- No menu do layout MILE, acione a ação **Importar**.
-- Selecione o arquivo de dados.
-- O sistema processará todos os registros aplicando as validações da rotina MATA089, garantindo a integridade fiscal e cadastral.
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![TOTVS Protheus](https://img.shields.io/badge/TOTVS-Protheus-blue)](https://www.totvs.com/)
+[![MILE](https://img.shields.io/badge/Framework-MILE-orange)](https://centraldeatendimento.totvs.com/hc/pt-br/articles/360028814432-Framework-Linha-Protheus-MILE-Model-Integrator-Layout-Engine)
 
----
+## 📌 Sobre o Projeto
 
-## 📊 Resultados Alcançados
+Este repositório contém a documentação e os artefatos de uma solução desenvolvida para automatizar o cadastro em massa da tabela **SFM (TES Inteligente)** no módulo de Faturamento do **TOTVS Protheus**.
 
-| Indicador | Antes (Manual) | Depois (MILE) |
-|-----------|----------------|----------------|
-| Tempo de cadastro (50 registros) | ~2 horas | **< 1 minuto** |
-| Taxa de erro | ~5-10% (digitação) | **0%** |
-| Necessidade de conferência | Alta | Nenhuma |
-| Foco da equipe | Operacional | **Estratégico** |
+O grande problema operacional era a inclusão manual de centenas de registros, gerando:
+- Horas de trabalho repetitivo
+- Alto risco de erros de digitação
+- Retrabalho constante
+- Baixa produtividade da equipe
 
----
-
-## 🔗 Links Úteis
-
-- [Documentação Oficial TOTVS – MILE](https://centraldeatendimento.totvs.com/hc/pt-br/articles/360028814432-Framework-Linha-Protheus-MILE-Model-Integrator-Layout-Engine)
-- [Base de Conhecimento – Tabela SFM (TES Inteligente)](https://centraldeatendimento.totvs.com/hc/pt-br/search?utf8=%E2%9C%93&query=tes+inteligente)
+A solução adotada foi o **MILE (Model Integrator Layout Engine)**, framework nativo do Protheus que permite criar layouts customizados para importação/exportação de dados, integrando planilhas (Excel/CSV) diretamente com as tabelas do sistema, respeitando todas as regras de negócio.
 
 ---
 
-## 🧠 Possíveis Evoluções
+## 📂 Estrutura do Repositório
 
-- Automatizar a geração do arquivo de importação via integração com sistemas externos (API, bancos de dados).
-- Estender o uso da MILE para outras tabelas:
-- `SA1` – Clientes (rotina CRMA980)
-- `SB1` – Produtos (rotina MATA200)
-- `SC6` – Pedidos de venda
-- Criar um validador pré-importação para evitar erros de formatação.
+| Arquivo | Descrição |
+|---------|------------|
+| `01 - MILE - SFM.png` | Tela de manutenção de layouts MILE – filtro para o layout SFM |
+| `02 - MILE - SFM.png` | Detalhamento do layout SFM (abas Geral, Canais, Campos, Saídas) |
+| `03 - LAYOUT_EXCEL.png` | Exemplo da planilha de origem (colunas: FM_TIF, FM_CLIENT, FM_LOC, FM_POS, FM_GRP, FM_DESCR, FM_ID) |
+| `04 - TES INTELIGENTE.png` | Visualização dos dados cadastrados no programa TES Inteligente do Faturamento |
+| `05 - TES INTELIGENTE.png` | Visualização dos dados cadastrados no programa TES Inteligente do Faturamento |
+| `README.md` | Este arquivo – documentação completa do projeto |
 
+---
+
+## ⚙️ Como a Solução Foi Implementada
+
+### 1. Criação do Layout MILE (SFM)
+- Acesse o **Configurador (SIGACFG)** → Manutenção de Layouts MILE.
+- Crie um novo layout com código `SFM` e descrição `CADASTRO - TES INTELIGENTE`.
+- Defina a **Tabela Principal** como `SFM` (TES Inteligente).
+- No canal `SFM_01`:
+  - Tipo de ocorrência: **Única** (processa todo o arquivo de uma vez)
+  - Pós-execução: habilitar ações de **Incluir**, **Alterar** e **Excluir**
+
+### 2. Adapter Utilizado
+- **Adapter:** `MATA089` (rotina padrão do Protheus para manutenção do TES Inteligente)
+- **Tipo Adapter:** `1 - MSExecAuto` (execução automática via rotina)
+
+### 3. Mapeamento dos Campos (Planilha → SFM)
+
+| Coluna da Planilha | Campo da Tabela SFM | Descrição |
+|--------------------|----------------------|------------|
+| FM_TIPO            | FM_TIPO              | Tipo de operação |
+| FM_CLIENTE         | FM_CLIENTE           | Cliente |
+| FM_LOJA            | FM_LOJA              | Loja do cliente |
+| FM_POSIPI          | FM_POSIPI            | NCM |
+| FM_GRPTI           | FM_GRPTI             | Grupo do TES Inteligente |
+| FM_DESCR           | FM_DESCR             | Descrição do grupo |
+| FM_ID              | FM_ID                | Identificador da regra |
+
+### 4. Arquivo de Importação
+- O arquivo deve ser gerado em formato **CSV** ou **TXT** com separador `|` (pipe) ou ponto-e-vírgula, conforme configurado no layout.
+- Exemplo de linha:
