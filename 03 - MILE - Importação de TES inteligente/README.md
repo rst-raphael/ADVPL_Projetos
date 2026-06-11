@@ -1,4 +1,4 @@
-# 🚀 Importação MILE – TES Inteligente (TOTVS Protheus)
+# 🚀 Totvs Protheus - Importação MILE – TES Inteligente
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![TOTVS Protheus](https://img.shields.io/badge/TOTVS-Protheus-blue)](https://www.totvs.com/)
