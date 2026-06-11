@@ -1,4 +1,4 @@
-# 🔒 Bloqueio Específico para Compras (Protheus)
+# 🔒 Totvs Protheus - Bloqueio Específico para Compras
 
 ## 📌 Visão Geral
 
