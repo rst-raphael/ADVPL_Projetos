@@ -14,7 +14,6 @@ Abaixo estão as rotinas principais citadas no processo de configuração e as f
 | :--- | :--- | :--- |
 | `MATA010.PRW` | Cadastro de Produtos | Pesquisar, Visualizar, Incluir, Alterar, Excluir, Consulta |
 | `CRMA980.PRW` | Cadastro de Clientes (MVC) | Gestão de Clientes e Prospects |
-| `APSADU.PRW` / `APCFG001.PRW` | Configurador (SIGACFG) | Gestão de Regras de Privilégios e Usuários |
 
 ---
 
@@ -56,35 +55,7 @@ No cadastro de regras, você deve associar a rotina à ação desejada:
 3.  Clique na aba **Privilégios** ou acesse via Outras Ações.
 4.  Adicione a regra criada anteriormente à lista de restrições do usuário.
 
----
 
-## 🔗 Endpoints / Rotinas de Monitoramento
-As seguintes rotinas de interface (Browses) são afetadas diretamente por estas configurações:
 
-*   **A010ALTERA**: Acionada ao tentar salvar uma modificação em `MATA010`.
-*   **VIEWDEF.CRMA980**: Acionada na renderização da View da rotina de Clientes.
-*   **Mata010Deleta**: Acionada no processo de exclusão de registros.
 
----
 
-## 📊 Logs & Monitoramento
-Quando um usuário sem privilégios tenta realizar uma operação bloqueada, o sistema exibe um alerta impeditivo (conforme evidenciado nos prints de execução):
-
-> **Atenção:** "Esse usuário não possui acesso para executar essa operação. Menu: MATA010 / Rotina: A010ALTERA"
-
-Para auditoria, utilize o **Log de Auditoria (GAFE020)** caso o parâmetro `MV_AUDIT` esteja ativo, para rastrear tentativas de violação de acesso.
-
----
-
-## 🤝 Contribuição
-Para sugerir melhorias neste fluxo de segurança:
-1.  Abra uma **Issue** relatando o cenário de negócio.
-2.  Envie um **Pull Request** caso possua customizações em `User Functions (U_)` que automatizem a atribuição de privilégios via `MsExecAuto`.
-
----
-
-## 📜 Licença
-Este guia de configuração é distribuído sob a licença **MIT**. O software Protheus é propriedade exclusiva da TOTVS S.A.
-
----
-*Mantido por: [Seu Nome/Organização]* 🚀
