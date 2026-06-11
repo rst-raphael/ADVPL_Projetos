@@ -1,4 +1,4 @@
-# 🔐 Protheus Privileges Manager: Controle de Acesso e Regras
+# 🔐 Totvs Protheus - Configurar privilégios para gerenciar o acesso às rotinas
 
 ## 📋 Visão Geral
 Este guia documenta o processo de configuração e gerenciamento de privilégios no ecossistema **TOTVS Protheus**. O sistema de privilégios permite um controle granular sobre o que cada usuário ou grupo pode realizar dentro das rotinas standard ou customizadas, indo além da simples permissão de acesso ao menu, chegando ao nível de operações de transação (Incluir, Alterar, Excluir, etc.).
