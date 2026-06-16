@@ -1,0 +1,48 @@
+Relação das Solicitações de Transferência
+
+Este projeto contém uma solução desenvolvida em ADVPL para o sistema TOTVS Protheus, que gera uma relação (lista/report) das solicitações de transferência.
+📋 Descrição
+
+O objetivo deste projeto é disponibilizar um relatório que lista todas as solicitações de transferência cadastradas no sistema, facilitando a consulta e o acompanhamento desses processos.
+
+O relatório é acessado através de uma nova opção inserida no menu do MATA311 (Rotina de Transferência), permitindo que o usuário visualize as informações de forma organizada e prática.
+📁 Estrutura dos Arquivos
+Arquivo	Descrição
+BIOESTRF.prw	Programa principal em ADVPL que gera o relatório de solicitações de transferência.
+MT311ROT.PRW	Ponto de entrada (Entry Point) que insere a opção "Gerar Relatório" no menu do MATA311, chamando o programa BIOESTRF.
+BIOESTRF.xlsx	Planilha Excel com parâmetros ou configurações utilizadas pelo relatório (ex.: filtros, campos exibidos, etc.).
+01 - Solicitação de Transferencia.png	Imagem ilustrativa da tela de solicitação de transferência.
+02 - BIOESTRF - Paramentros.png	Imagem da tela de parâmetros do relatório.
+03 - BIOESTRF - Paramentros.png	Outra imagem da tela de parâmetros (possivelmente com diferentes configurações).
+Relatorio em Tela sistema.png	Imagem do relatório sendo exibido na tela do sistema.
+⚙️ Funcionalidades
+
+    Geração de relatório com todas as solicitações de transferência.
+
+    Interface intuitiva para definição de parâmetros (filtros por período, situação, etc.).
+
+    Exibição do relatório diretamente na tela do Protheus.
+
+    Opção de menu integrada ao MATA311 para fácil acesso.
+
+🚀 Como Utilizar
+
+    Importe os fontes para o ambiente de desenvolvimento do Protheus (ex.: SmartClient, ou diretamente no servidor).
+
+    Compile os programas BIOESTRF.prw e MT311ROT.PRW.
+
+    Ative o Entry Point MT311ROT para que a opção "Gerar Relatório" apareça no menu do MATA311.
+
+    Acesse a rotina MATA311 (Transferência) e clique na nova opção.
+
+    Defina os parâmetros desejados e visualize o relatório.
+
+    Nota: O arquivo BIOESTRF.xlsx deve estar disponível no diretório correto do servidor ou ser ajustado conforme a necessidade da sua implementação.
+
+🛠️ Requisitos
+
+    TOTVS Protheus (versão compatível com ADVPL).
+
+    Conhecimento básico em ADVPL para importação e compilação dos fontes.
+
+    Acesso ao ambiente de desenvolvimento para deploy da solução.
