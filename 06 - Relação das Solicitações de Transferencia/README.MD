@@ -28,7 +28,7 @@ A rotina padrão de Solicitação de Transferência do módulo de Estoque e Cust
 ## 📥 Instalação/Deploy
 
 1.  Baixe os arquivos `.prw` contidos neste repositório.
-2.  Compile os fontes `MT311ROT.prw` e `BIOESTRF.prw` utilizando o **VS Code (com extensões TOTVS)** ou **AppBuilder**.
+2.  Compile os fontes `MT311ROT.prw` e `BIOESTRF.prw` utilizando o **VS Code (com extensões TOTVS)** 
 3.  Certifique-se de que não existam outros pontos de entrada com o mesmo nome (`MT311ROT`) no seu RPO. Caso existam, mescle o código utilizando o comando `ADD OPTION`.
 
 ## 🎮 Como Usar
@@ -48,8 +48,4 @@ A rotina padrão de Solicitação de Transferência do módulo de Estoque e Cust
 A integração ocorre exclusivamente via interface Protheus:
 - **Rotina Técnica:** `MATA311` (Solicitação de Transferência)
 - **Função Chamada:** `U_BIOESTRF()` (Executada via botão criado no P.E.)
-
-## 📊 Logs & Monitoramento
-
-O relatório utiliza o padrão AdvPL. Eventuais erros de execução (como filtros que resultam em relatórios vazios) serão exibidos via `Help()` ou logs de console do AppServer. Para debug de dados, verifique a tabela **CPH** (Solicitações de Transferência) e **CPG** (Itens da Solicitação).
 
