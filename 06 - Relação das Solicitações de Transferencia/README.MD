@@ -16,14 +16,13 @@ A rotina padrão de Solicitação de Transferência do módulo de Estoque e Cust
 ## 🛠️ Tecnologias Utilizadas
 
 - **Linguagem:** AdvPL (Advanced Protheus Language)
-- **Frameworks:** FWMVCDEF (para manipulação de menus MVC)
-- **Módulo:** SIGAEST (Estoque e Custos)
+- **Ponto de Entrada:** Utilização do MT311ROT para manipulação do array aRotina.
+- **TReport / Relatórios Customizados:** Criação de interface de parâmetros (Pergunte) para filtragem de dados.
 - **Banco de Dados:** Compatível com todos os suportados pelo Protheus (MSSQL, Oracle, etc).
 
 ## 🚀 Pré-requisitos
 
-- Protheus 12.1.x ou superior.
-- Acesso ao configurador (SIGACFG) para compilação.
+- Acesso ao VSCODE para compilação.
 - Permissão de acesso à rotina `MATA311` no módulo 04 (Estoque).
 
 ## 📥 Instalação/Deploy
@@ -54,17 +53,3 @@ A integração ocorre exclusivamente via interface Protheus:
 
 O relatório utiliza o padrão AdvPL. Eventuais erros de execução (como filtros que resultam em relatórios vazios) serão exibidos via `Help()` ou logs de console do AppServer. Para debug de dados, verifique a tabela **CPH** (Solicitações de Transferência) e **CPG** (Itens da Solicitação).
 
-## 🤝 Contribuição
-
-1.  Faça um **Fork** do projeto.
-2.  Crie uma **Branch** para sua modificação (`git checkout -b feature/melhoria-relatorio`).
-3.  Faça o **Commit** (`git commit -m 'Adicionado filtro por filial'`).
-4.  **Push** para a Branch (`git push origin feature/melhoria-relatorio`).
-5.  Abra um **Pull Request**.
-
-## ⚖️ Licença
-
-Este projeto é distribuído sob a Licença MIT. Sinta-se à vontade para utilizar e modificar conforme a necessidade do seu ambiente Protheus.
-
----
-*Mantido por **Equipe de Desenvolvimento Protheus***. 🚀
