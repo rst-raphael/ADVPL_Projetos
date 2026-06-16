@@ -1,4 +1,4 @@
-# ⚖️ Tela Customizada para Dados de Pesagem – Expedição (Protheus)
+# ⚖️ Totvs Protheus - Tela Customizada para Dados de Pesagem – Expedição
 
 ## 📌 Visão Geral
 
