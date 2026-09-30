@@ -74,5 +74,5 @@ Para validar se o valor está sendo gravado corretamente:
 Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
-> **Mantenedor:** [Seu Nome/Empresa]  
+> **Mantenedor:** [Raphael Silva]  
 > **Contexto:** Customização Protheus - ERP TOTVS.
