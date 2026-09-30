@@ -83,3 +83,7 @@ Este projeto está sob a licença **MIT**. Sinta-se à vontade para utilizar, mo
 
 ---
 > **Nota:** Este Ponto de Entrada foi baseado na documentação oficial [TDN - FA060Qry](https://tdn.totvs.com/pages/releaseview.action?pageId=6071120).
+
+> ---
+> **Mantenedor:** [Raphael Silva]  
+> **Contexto:** Customização Protheus - ERP TOTVS.
