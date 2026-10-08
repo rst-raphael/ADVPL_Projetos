@@ -33,7 +33,7 @@ A ideia é reunir soluções práticas aplicadas a diferentes módulos (compras,
 
 - **Arquivo:** `ALTPESO.PRW`
 - **Funcionalidade:**
-  Rotina que altera informações de pesagem – útil para correção ou ajuste de notas fiscais de entrada, romaneios ou processos industriais.
+  Rotina que altera informações de pesagem – útil para alteração de pedidos de venda
 - **Acompanha:** imagem demonstrativa da tela.
 
 ### 3. MILE – Importação de TES inteligente
