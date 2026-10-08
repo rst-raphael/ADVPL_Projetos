@@ -10,7 +10,7 @@ A ideia é reunir soluções práticas aplicadas a diferentes módulos (compras,
 
 | Pasta                                            | Descrição                                                                                      |
 | ------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `01 - Bloqueia Produto - Compras`                | Rotinas de bloqueio de produtos no momento da compra.                                          |
+| `01 - Bloqueia Produto - Compras`                | Rotinas de bloqueio de produtos - Solicitação de Compras e Pedido de Compra                    |
 | `02 - Altera Dados Pesagem`                      | Programa para alterar dados de pesagem (módulo de compras/produção).                           |
 | `03 - MILE - Importação de TES inteligente`      | Processo de importação de Tipo de Estoque (TES) com lógica personalizada.                      |
 | `04 - Cadastro de Privilégios`                   | Guia de configuração de privilégios para controlar as operações permitidas por usuário.        |
@@ -26,7 +26,7 @@ A ideia é reunir soluções práticas aplicadas a diferentes módulos (compras,
 
 - **Arquivos:** `MT110LOK.PRW`, `MT120LOK.PRW`
 - **Funcionalidade:**
-  Customiza as rotinas padrão `MT110` (cadastro de produtos) e `MT120` (cadastro de grupos) para permitir/bloquear a compra de produtos com base em regras definidas pelo negócio.
+  Customiza as rotinas padrão `MT110LOK` (Solicitação de compras) e `MT120LOK` (Pedido de Compra) para permitir/bloquear a compra de produtos com base em regras definidas pelo negócio.
 - **Observação:** As imagens `B1_MSBLQL.png` e `B1_XDESCON.png` ilustram os novos campos ou flags utilizados.
 
 ### 2. Altera Dados Pesagem
