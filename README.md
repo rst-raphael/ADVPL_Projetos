@@ -10,8 +10,7 @@ A ideia é reunir soluções práticas aplicadas a diferentes módulos (compras,
 
 | Pasta                                            | Descrição                                                                                      |
 | ------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| `01 - Bloqueia Produto - Compras`                | Rotinas de bloqueio de produtos no momento da compra.       
-      |
+| `01 - Bloqueia Produto - Compras`                | Rotinas de bloqueio de produtos no momento da compra.                                          |
 | `02 - Altera Dados Pesagem`                      | Programa para alterar dados de pesagem (módulo de compras/produção).                           |
 | `03 - MILE - Importação de TES inteligente`      | Processo de importação de Tipo de Estoque (TES) com lógica personalizada.                      |
 | `04 - Cadastro de Privilégios`                   | Guia de configuração de privilégios para controlar as operações permitidas por usuário.        |
